@@ -1,0 +1,73 @@
+openapi: '3.0.2'
+info:
+  title: Radon API
+  version: '1.0'
+servers:
+  - description: LocalHost
+    url: http://localhost:3000
+tags:
+  - name: Users
+    description: All about user authentication and management
+paths:
+  /users:
+    post:
+      tags:
+        - Users
+      description: 'Create a new user'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserCreate'
+      responses:
+        '201':
+          description: User created
+        '409':
+          description: User already exists
+    get:
+      tags:
+        - Users
+      description: 'Login a user'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserLogin'
+      responses:
+        '200':
+          description: User logged in
+        '401':
+          description: User not found
+        '403':
+          description: Wrong password
+components:
+  schemas:
+    UserCreate:
+      type: object
+      required:
+        - name
+        - email
+        - password
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+          format: password
+    UserLogin:
+      type: object
+      required:
+        - email
+        - password
+      properties:
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+          format: password
