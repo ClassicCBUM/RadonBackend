@@ -1,3 +1,4 @@
 /superuserPG
 .gitignore
 /Backend-HC/node_modules
+/Backend-HC/.env

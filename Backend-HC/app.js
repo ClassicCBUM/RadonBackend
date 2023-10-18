@@ -2,16 +2,17 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const Sequelize = require('sequelize');
+require('dotenv').config();
 
 // middleware
 app.use(cors());
 app.use(express.json());
 
 // db
-const sequelize = new Sequelize('radondb', 'cbum', 'classicCBUM', {
+const sequelize = new Sequelize(process.env.DATABASE_NAME, process.env.DATABASE_USER, process.env.DATABASE_PASS, {
     dialect: 'postgres',
-    host: 'localhost',
-    port: 5432
+    host: process.env.DATABASE_HOST,
+    port: process.env.DATABASE_PORT
 });
 
 async function authenticateDB() {
