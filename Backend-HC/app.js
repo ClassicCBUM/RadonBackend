@@ -32,10 +32,10 @@ async function syncDB() {
 syncDB();
 
 // routers
-const userRouter = require('./routes/userRoutes');
+//const userRouter = require('../routes/userRoutes');
 
 // routes
-app.use('/users', userRouter);
+//app.use('/users', userRouter);
 
 // server
 app.listen(3000, () => {
