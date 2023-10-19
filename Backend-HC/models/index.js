@@ -1,10 +1,10 @@
 require('dotenv').config({path:'../.env'});
 
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize('radondb', 'cbum', 'classicCBUM', {
-    dialect: 'postgres',
-    host: 'localhost',
-    port: '5432'
+const sequelize = new Sequelize(process.env.DATABASE_NAME, process.env.DATABASE_USER, process.env.DATABASE_PASSWORD, {
+    dialect: process.env.DATABASE_DIALECT,
+    host: process.env.DATABASE_HOST,
+    port: process.env.DATABASE_PORTS
 });
 
 async function authenticateDB() {

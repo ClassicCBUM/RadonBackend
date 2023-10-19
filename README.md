@@ -15,10 +15,11 @@ GRANT ALL PRIVILEGES ON SCHEMA public TO username;
 ```
 4. Finally we need to create a .env file that looks like this:
 ```
-DATABASE_NAME = "radondb";
-DATABASE_USER = "user";
-DATABASE_PASSWORD = "password";
-DATABASE_HOST = "still localhost";
-DATABASE_PORT = "postgresql PORT"; 
+DATABASE_NAME=radondb
+DATABASE_USER=user
+DATABASE_PASSWORD=password
+DATABASE_DIALECT=postgres
+DATABASE_HOST=still localhost
+DATABASE_PORT=postgresql PORT
 ```
 5. We have our db ready!
