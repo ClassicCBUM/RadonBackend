@@ -10,6 +10,8 @@ GRANT CONNECT ON DATABASE radondb TO username;
 GRANT USAGE, CREATE ON SCHEMA public TO username;
 ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO username;
 ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT USAGE, SELECT, UPDATE ON SEQUENCES TO username;
+\c radon db
+GRANT ALL PRIVILEGES ON SCHEMA public TO username;
 ```
 4. Finally we need to create a .env file that looks like this:
 ```
