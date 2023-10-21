@@ -1,3 +1,7 @@
+REMEMBER!
+Run npm i to install all the dependencies from the directory where app.js is saved.
+To execute the code run node app.js from app.js's directory.
+
 In order to configure our db:
 1. Postgresql will be our db manage system
 2. We are using sequelize (a node library) that makes everything easier
@@ -6,11 +10,7 @@ In order to configure our db:
 ```SQL
 CREATE DATABASE radondb;
 CREATE USER username WITH PASSWORD 'password';
-GRANT CONNECT ON DATABASE radondb TO username;
-GRANT USAGE, CREATE ON SCHEMA public TO username;
-ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO username;
-ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT USAGE, SELECT, UPDATE ON SEQUENCES TO username;
-\c radon db
+\c radondb
 GRANT ALL PRIVILEGES ON SCHEMA public TO username;
 ```
 4. Finally we need to create a .env file that looks like this:
