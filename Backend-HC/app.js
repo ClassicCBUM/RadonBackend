@@ -17,10 +17,12 @@ app.use(express.json());
 // routers
 const userRouter = require('./routes/userRoutes');
 const surveyRouter = require('./routes/surveyRoutes');
+const surveyStatusRouter = require('./routes/surveyStatusRoutes');
 
 // routes
 app.use('/users', userRouter);
 app.use('/surveys', surveyRouter);
+app.use('/surveyStatus', surveyStatusRouter)
 
 // server
 app.listen(3000, () => {
