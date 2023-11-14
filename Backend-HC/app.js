@@ -16,9 +16,11 @@ app.use(express.json());
 
 // routers
 const userRouter = require('./routes/userRoutes');
+const surveyRouter = require('./routes/surveyRoutes');
 
 // routes
 app.use('/users', userRouter);
+app.use('/surveys', surveyRouter);
 
 // server
 app.listen(3000, () => {
