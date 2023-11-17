@@ -24,5 +24,6 @@ db.sequelize = sequelize;
 
 db.User = require('./User.js')(sequelize, Sequelize);
 db.Survey = require('./Survey.js')(sequelize, Sequelize);
+db.SurveyStatus = require('./SurveyStatus.js')(sequelize, Sequelize);
 
 module.exports = db;

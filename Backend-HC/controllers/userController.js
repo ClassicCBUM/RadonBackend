@@ -9,10 +9,15 @@ const register = async (req, res) => {
             res.status(StatusCodes.CONFLICT).send('User already exists');
         } else {
             const newUser = await db.User.create({ email });
-            const surveyId = await db.User.findOne({where: id = 1});
+            const surveyId = await db.Survey.findOne({
+                attributes: ['id'], // Select only the 'id' column
+                order: [['id', 'ASC']], // Order by 'id' in ascending order
+                limit: 1, // Limit the result set to 1 row
+              });
+            console.log(surveyId);
             const newSurveyStatus = await db.SurveyStatus.create({
                 user_email: newUser.email,
-                survey_id: surveyId,
+                survey_id: surveyId.id,
             });
             const responseData = {
                 newUser: newUser,
@@ -22,6 +27,7 @@ const register = async (req, res) => {
         }
     }
     catch (error) {
+        console.error(error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
 }
