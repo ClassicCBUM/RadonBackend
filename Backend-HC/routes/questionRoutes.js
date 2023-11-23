@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { createQuestion, deleteQuestion, changeOrder, getQuestions, getQuestion } = require('../controllers/questionController');
+const { createQuestion, deleteQuestion, changeOrder, getQuestions, getQuestion, createQuestions } = require('../controllers/questionController');
 
 router.route('/').post(createQuestion);
 router.route('/').get(getQuestions);
