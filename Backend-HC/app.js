@@ -16,11 +16,15 @@ app.use(express.json());
 
 // routers
 const userRouter = require('./routes/userRoutes');
+const surveyRouter = require('./routes/surveyRoutes');
+const surveyStatusRouter = require('./routes/surveyStatusRoutes');
 const questionRouter = require('./routes/questionRoutes');
 const answerRouter = require('./routes/answerRoutes');
 
 // routes
 app.use('/users', userRouter);
+app.use('/surveys', surveyRouter);
+app.use('/surveyStatus', surveyStatusRouter)
 app.use('/questions', questionRouter);
 app.use('/answers', answerRouter);
 
