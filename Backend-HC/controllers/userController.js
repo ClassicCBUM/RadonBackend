@@ -32,6 +32,23 @@ const register = async (req, res) => {
     }
 }
 
+const login = async (req, res) => {
+    try {
+        const { email } = req.body;
+        const user = await db.User.findOne({ where: { email } });
+        if (user) {
+            res.status(StatusCodes.OK).send(user);
+        } else {
+            res.status(StatusCodes.NOT_FOUND).send('User not found');
+        }
+    }
+    catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
+
 module.exports = {
-    register
+    register,
+    login
 }

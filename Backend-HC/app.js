@@ -11,7 +11,9 @@ async function syncDB() {
 syncDB();
 
 // middleware
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:8080'
+}));
 app.use(express.json());
 
 // routers
@@ -22,13 +24,13 @@ const questionRouter = require('./routes/questionRoutes');
 const answerRouter = require('./routes/answerRoutes');
 
 // routes
-app.use('/users', userRouter);
-app.use('/surveys', surveyRouter);
-app.use('/surveyStatus', surveyStatusRouter)
-app.use('/questions', questionRouter);
-app.use('/answers', answerRouter);
+app.use('/api/v1/users', userRouter);
+app.use('/api/v1/surveys', surveyRouter);
+app.use('/api/v1/surveyStatus', surveyStatusRouter)
+app.use('/api/v1/questions', questionRouter);
+app.use('/api/v1/answers', answerRouter);
 
 // server
-app.listen(3000, () => {
-    console.log('server listening on port 3000');
+app.listen(8080, () => {
+    console.log('server listening on port 8080');
 });
